@@ -14,13 +14,16 @@
   --paper:#eceeef; --ink:#1c2024;
   --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --body:"Barlow",system-ui,Arial,sans-serif;
+  --pad:clamp(24px,6vw,64px); /* side space from the screen edge */
 }
 *{box-sizing:border-box;margin:0}
+img,svg{max-width:100%}
+html{-webkit-text-size-adjust:100%}
 body{font-family:var(--body);font-size:18px;line-height:1.55;background:var(--paper);color:var(--ink)}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--oak);outline-offset:3px}
 
-.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;background:var(--steel);color:#fff}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px var(--pad);background:var(--steel);color:#fff}
 .bar b{font-family:var(--display);font-size:26px;letter-spacing:.02em}
 .btn{display:inline-block;padding:12px 22px;border-radius:4px;background:var(--birch);color:var(--ink);font-weight:500;text-decoration:none}
 .btn:hover{background:#fff}
@@ -29,7 +32,8 @@ a{color:inherit}
 
 /* Hero: one loft table, bare steel frame on the left, finished on the right */
 .hero{position:relative;background:linear-gradient(90deg,#565e66 0%,#7d8388 42%,#c7ab80 62%,#dcc7a4 100%);overflow:hidden}
-.words{display:flex;justify-content:space-between;gap:16px;padding:clamp(20px,4vw,48px) clamp(20px,5vw,64px) 0}
+.words{display:flex;justify-content:space-between;gap:16px;padding:clamp(20px,4vw,48px) var(--pad) 0}
+.words>div{min-width:0}
 .words h2{font-family:var(--display);font-weight:700;font-size:clamp(44px,10vw,132px);line-height:.95}
 .words p{max-width:24ch;margin-top:6px}
 .w-metal{color:#fff}
@@ -37,20 +41,27 @@ a{color:inherit}
 .w-furn p{margin-left:auto}
 .hero svg{display:block;width:100%;height:auto;max-height:70vh}
 
-section{max-width:980px;margin:0 auto;padding:56px 20px}
+section{max-width:980px;margin:0 auto;padding:56px var(--pad)}
 h3{font-family:var(--display);font-weight:700;font-size:38px;margin-bottom:14px}
+.about h1{font-family:var(--display);font-size:clamp(34px,8vw,44px);line-height:1.05;margin-bottom:14px}
 .about p{max-width:60ch}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.grid figure{aspect-ratio:4/3;border:2px dashed #9aa1a7;border-radius:4px;display:grid;place-items:center;color:#66707a;overflow:hidden}
-.grid img{width:100%;height:100%;object-fit:cover;display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:14px}
+.grid figure{position:relative;aspect-ratio:4/3;border:2px dashed #9aa1a7;border-radius:4px;display:grid;place-items:center;color:#66707a;overflow:hidden}
+.grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 
 .contact{text-align:center;padding-bottom:80px}
 .contact p{margin:0 auto 22px;max-width:44ch}
-footer{padding:20px;text-align:center;background:var(--steel);color:#c9ced2;font-size:15px}
+footer{padding:20px var(--pad);text-align:center;background:var(--steel);color:#c9ced2;font-size:15px}
 
 @media (max-width:640px){
-  .words p{font-size:16px}
+  body{font-size:17px}
+  section{padding-top:40px;padding-bottom:40px}
+  h3{font-size:32px}
+  .words{gap:12px}
+  .words p{font-size:15px}
+  .bar .btn{padding:10px 16px;font-size:16px}
+  .btn.big{display:block;text-align:center}
 }
 </style>
 </head>
@@ -117,21 +128,22 @@ footer{padding:20px;text-align:center;background:var(--steel);color:#c9ced2;font
   </div>
 
   <section class="about">
-    <h1 style="font-family:var(--display);font-size:44px;line-height:1.05;margin-bottom:14px">Metal and woodworking</h1>
+    <h1>Metal and woodworking</h1>
     <p>I make things from steel and timber, from a welded gate to a fitted cabinet. Tell me what you need, and I will suggest the materials and give you a price.</p>
   </section>
 
   <section>
     <h3>Recent work</h3>
     <div class="grid">
-      <!-- To add a photo: put the file in a folder named "photos" next to this file,
-           then replace a line below with: <figure><img src="photos/work-1.jpg" alt="Steel gate"></figure> -->
-      <figure>Photo 1</figure>
-      <figure>Photo 2</figure>
-      <figure>Photo 3</figure>
-      <figure>Photo 4</figure>
-      <figure>Photo 5</figure>
-      <figure>Photo 6</figure>
+      <!-- PHOTOS: put your pictures in a folder named "photos" next to this file and name them
+           work-1.jpg, work-2.jpg ... work-6.jpg. A missing photo just shows its grey box.
+           To add more, copy one line below and change the number. Change alt="..." to a short description. -->
+      <figure><span>Photo 1</span><img src="photos/work-1.jpg" alt="Work 1" loading="lazy" onerror="this.remove()"></figure>
+      <figure><span>Photo 2</span><img src="photos/work-2.jpg" alt="Work 2" loading="lazy" onerror="this.remove()"></figure>
+      <figure><span>Photo 3</span><img src="photos/work-3.jpg" alt="Work 3" loading="lazy" onerror="this.remove()"></figure>
+      <figure><span>Photo 4</span><img src="photos/work-4.jpg" alt="Work 4" loading="lazy" onerror="this.remove()"></figure>
+      <figure><span>Photo 5</span><img src="photos/work-5.jpg" alt="Work 5" loading="lazy" onerror="this.remove()"></figure>
+      <figure><span>Photo 6</span><img src="photos/work-6.jpg" alt="Work 6" loading="lazy" onerror="this.remove()"></figure>
     </div>
   </section>
 
