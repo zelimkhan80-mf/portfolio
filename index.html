@@ -136,14 +136,14 @@ footer{padding:20px var(--pad);text-align:center;background:var(--steel);color:#
     <h3>Recent work</h3>
     <div class="grid">
       <!-- PHOTOS: put your pictures in a folder named "photos" next to this file and name them
-           work-1.jpg, work-2.jpg ... work-6.jpg. A missing photo just shows its grey box.
+           work-1.jpg, work-2.jpg ... work-6.jpg. The extension can be jpg, jpeg, png or webp. A missing photo just shows its grey box.
            To add more, copy one line below and change the number. Change alt="..." to a short description. -->
-      <figure><span>Photo 1</span><img src="photos/work-1.jpg" alt="Work 1" loading="lazy" onerror="this.remove()"></figure>
-      <figure><span>Photo 2</span><img src="photos/work-2.jpg" alt="Work 2" loading="lazy" onerror="this.remove()"></figure>
-      <figure><span>Photo 3</span><img src="photos/work-3.jpg" alt="Work 3" loading="lazy" onerror="this.remove()"></figure>
-      <figure><span>Photo 4</span><img src="photos/work-4.jpg" alt="Work 4" loading="lazy" onerror="this.remove()"></figure>
-      <figure><span>Photo 5</span><img src="photos/work-5.jpg" alt="Work 5" loading="lazy" onerror="this.remove()"></figure>
-      <figure><span>Photo 6</span><img src="photos/work-6.jpg" alt="Work 6" loading="lazy" onerror="this.remove()"></figure>
+      <figure><span>Photo 1</span><img src="photos/work-1.jpg" alt="Work 1" loading="lazy"></figure>
+      <figure><span>Photo 2</span><img src="photos/work-2.jpg" alt="Work 2" loading="lazy"></figure>
+      <figure><span>Photo 3</span><img src="photos/work-3.jpg" alt="Work 3" loading="lazy"></figure>
+      <figure><span>Photo 4</span><img src="photos/work-4.jpg" alt="Work 4" loading="lazy"></figure>
+      <figure><span>Photo 5</span><img src="photos/work-5.jpg" alt="Work 5" loading="lazy"></figure>
+      <figure><span>Photo 6</span><img src="photos/work-6.jpg" alt="Work 6" loading="lazy"></figure>
     </div>
   </section>
 
@@ -156,5 +156,19 @@ footer{padding:20px var(--pad);text-align:center;background:var(--steel);color:#
 
 <footer>Zelim · Metal and woodworking</footer>
 
+<script>
+/* Photos: try several file extensions for each photo; if none exists, keep the grey box */
+document.querySelectorAll('.grid img').forEach(function (img) {
+  var base = img.getAttribute('src').replace(/\.\w+$/, '');
+  var exts = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG'];
+  var i = 0;
+  function next() {
+    i++;
+    if (i < exts.length) { img.src = base + '.' + exts[i]; } else { img.remove(); }
+  }
+  img.addEventListener('error', next);
+  if (img.complete && img.naturalWidth === 0) { next(); }
+});
+</script>
 </body>
 </html>
