@@ -1,174 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zelim — Metal and woodworking</title>
-<meta name="description" content="Metal and woodworking: welded frames, gates, canopies, furniture and built-ins.">
+<title>Зелим — металл и дерево</title>
+<meta name="description" content="Мебель, сварка и металлоконструкции на заказ. Алматы.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --steel:#2b3035; --steel-hi:#4a525a; --oak:#a9773f; --birch:#dcc7a4;
-  --paper:#eceeef; --ink:#1c2024;
-  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
-  --body:"Barlow",system-ui,Arial,sans-serif;
-  --pad:clamp(24px,6vw,64px); /* side space from the screen edge */
-}
+:root{--steel:#2b3035;--steel-hi:#4a525a;--oak:#a9773f;--paper:#eceeef;--ink:#1c2024;
+--display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;--body:"Barlow",system-ui,Arial,sans-serif;
+--pad:clamp(20px,6vw,64px)}
 *{box-sizing:border-box;margin:0}
-img,svg{max-width:100%}
-html{-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
 body{font-family:var(--body);font-size:18px;line-height:1.55;background:var(--paper);color:var(--ink)}
-a{color:inherit}
 :focus-visible{outline:3px solid var(--oak);outline-offset:3px}
-
-.bar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px var(--pad);background:var(--steel);color:#fff}
-.bar b{font-family:var(--display);font-size:26px;letter-spacing:.02em}
-.btn{display:inline-block;padding:12px 22px;border-radius:4px;background:var(--birch);color:var(--ink);font-weight:500;text-decoration:none}
-.btn:hover{background:#fff}
-.btn.big{padding:16px 30px;font-size:20px;background:var(--steel);color:#fff}
-.btn.big:hover{background:var(--steel-hi)}
-
-/* Hero: one loft table, bare steel frame on the left, finished on the right */
-.hero{position:relative;background:linear-gradient(90deg,#565e66 0%,#7d8388 42%,#c7ab80 62%,#dcc7a4 100%);overflow:hidden}
-.words{display:flex;justify-content:space-between;gap:16px;padding:clamp(20px,4vw,48px) var(--pad) 0}
-.words>div{min-width:0}
-.words h2{font-family:var(--display);font-weight:700;font-size:clamp(44px,10vw,132px);line-height:.95}
-.words p{max-width:24ch;margin-top:6px}
-.w-metal{color:#fff}
-.w-furn{color:var(--ink);text-align:right}
-.w-furn p{margin-left:auto}
-.hero svg{display:block;width:100%;height:auto;max-height:70vh}
-
-section{max-width:980px;margin:0 auto;padding:56px var(--pad)}
-h3{font-family:var(--display);font-weight:700;font-size:38px;margin-bottom:14px}
-.about h1{font-family:var(--display);font-size:clamp(34px,8vw,44px);line-height:1.05;margin-bottom:14px}
-.about p{max-width:60ch}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:14px}
-.grid figure{position:relative;aspect-ratio:4/3;border:2px dashed #9aa1a7;border-radius:4px;display:grid;place-items:center;color:#66707a;overflow:hidden}
-.grid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-
-.contact{text-align:center;padding-bottom:80px}
-.contact p{margin:0 auto 22px;max-width:44ch}
-footer{padding:20px var(--pad);text-align:center;background:var(--steel);color:#c9ced2;font-size:15px}
-
-@media (max-width:640px){
-  body{font-size:17px}
-  section{padding-top:40px;padding-bottom:40px}
-  h3{font-size:32px}
-  .words{gap:12px}
-  .words p{font-size:15px}
-  .bar .btn{padding:10px 16px;font-size:16px}
-  .btn.big{display:block;text-align:center}
-}
+header{background:var(--steel);color:#fff;padding:clamp(40px,9vw,96px) var(--pad);border-bottom:8px solid var(--oak)}
+h1{font-family:var(--display);font-size:clamp(44px,9vw,96px);line-height:1;font-weight:700;max-width:14ch}
+header p{margin-top:20px;max-width:34ch;color:#cfd3d6;font-size:20px}
+.btn{display:inline-block;margin-top:28px;padding:14px 28px;background:var(--oak);color:#fff;text-decoration:none;font-family:var(--display);font-size:22px;font-weight:600;border-radius:4px}
+.btn:hover{background:#fff;color:var(--steel)}
+main{padding:clamp(32px,6vw,64px) var(--pad)}
+h2{font-family:var(--display);font-size:clamp(32px,5vw,48px);font-weight:700;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;background:var(--steel-hi)}
+#contact{background:var(--steel);color:#fff;padding:clamp(32px,6vw,64px) var(--pad)}
+#contact p{max-width:40ch;color:#cfd3d6}
+#contact strong{display:block;margin-top:16px;font-size:26px;color:#fff;font-family:var(--display)}
 </style>
 </head>
 <body>
-
-<header class="bar">
-  <b>Zelim</b>
-  <a class="btn" href="https://t.me/Zelim_Mik">Message on Telegram</a>
+<header>
+<h1>Металл и дерево на заказ</h1>
+<p>Мебель, сварка и металлоконструкции. Алматы.</p>
+<a class="btn" href="#contact">Связаться</a>
 </header>
-
 <main>
-  <div class="hero">
-    <div class="words">
-      <div class="w-metal">
-        <h2>Metal</h2>
-        <p>Welding, frames, gates, canopies.</p>
-      </div>
-      <div class="w-furn">
-        <h2>Furniture</h2>
-        <p>Cabinets and built-ins, mainly chipboard, plus solid wood for loft-style pieces.</p>
-      </div>
-    </div>
-
-    <!-- One loft table: bare black steel frame on the left, finished with a top on the right -->
-    <svg viewBox="0 0 1200 520" role="img" aria-label="A loft table. On the left, only the black steel frame. On the right, the same table finished with a chipboard top.">
-      <defs>
-        <linearGradient id="fade" gradientUnits="userSpaceOnUse" x1="430" y1="0" x2="700" y2="0">
-          <stop offset="0" stop-color="#000"/><stop offset="1" stop-color="#fff"/>
-        </linearGradient>
-        <mask id="reveal" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="520">
-          <rect width="1200" height="520" fill="url(#fade)"/>
-        </mask>
-        <pattern id="grain" width="90" height="26" patternUnits="userSpaceOnUse">
-          <rect width="90" height="26" fill="#a5723c"/>
-          <path d="M0 5 Q30 2 60 6 T90 5 M0 14 Q25 17 55 13 T90 15 M0 22 Q35 20 70 23 T90 22" stroke="#8c5d2d" stroke-width="1.4" fill="none"/>
-        </pattern>
-        <filter id="soft" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="14"/></filter>
-      </defs>
-
-      <ellipse cx="620" cy="450" rx="520" ry="44" fill="#000" opacity=".2" filter="url(#soft)"/>
-
-      <!-- Steel: legs, stretchers, frame (always visible) -->
-      <g fill="none" stroke="#0e1113" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="3">
-        <path d="M250 244L300 326L350 244M300 326L235 408H365Z"/>
-        <path d="M890 244L940 326L990 244M940 326L875 408H1005Z"/>
-      </g>
-      <g fill="none" stroke="#14171a" stroke-width="12" stroke-linejoin="miter" stroke-miterlimit="3">
-        <path d="M170 314L220 396L270 314M220 396L155 478H285Z"/>
-        <path d="M810 314L860 396L910 314M860 396L795 478H925Z"/>
-      </g>
-      <g fill="none" stroke="#14171a" stroke-width="14" stroke-linejoin="miter">
-        <path d="M120 300H960L1040 230H200Z"/>
-        <path d="M330 300L410 230" stroke-width="10"/>
-      </g>
-
-      <!-- Finished top: fades in from left to right -->
-      <g mask="url(#reveal)">
-        <path d="M120 300H960L1040 230H200Z" fill="url(#grain)"/>
-        <path d="M120 300H960L1040 230H200Z" fill="#fff" opacity=".08"/>
-        <path d="M120 300H960V318H120Z" fill="#7d5227"/>
-        <path d="M960 300L1040 230V248L960 318Z" fill="#6b4520"/>
-      </g>
-    </svg>
-  </div>
-
-  <section class="about">
-    <h1>Metal and woodworking</h1>
-    <p>I make things from steel and timber, from a welded gate to a fitted cabinet. Tell me what you need, and I will suggest the materials and give you a price.</p>
-  </section>
-
-  <section>
-    <h3>Recent work</h3>
-    <div class="grid">
-      <!-- PHOTOS: put your pictures in a folder named "photos" next to this file and name them
-           work-1.jpg, work-2.jpg ... work-6.jpg. The extension can be jpg, jpeg, png or webp. A missing photo just shows its grey box.
-           To add more, copy one line below and change the number. Change alt="..." to a short description. -->
-      <figure><span>Photo 1</span><img src="photos/work-1.jpg" alt="Work 1" loading="lazy"></figure>
-      <figure><span>Photo 2</span><img src="photos/work-2.jpg" alt="Work 2" loading="lazy"></figure>
-      <figure><span>Photo 3</span><img src="photos/work-3.jpg" alt="Work 3" loading="lazy"></figure>
-      <figure><span>Photo 4</span><img src="photos/work-4.jpg" alt="Work 4" loading="lazy"></figure>
-      <figure><span>Photo 5</span><img src="photos/work-5.jpg" alt="Work 5" loading="lazy"></figure>
-      <figure><span>Photo 6</span><img src="photos/work-6.jpg" alt="Work 6" loading="lazy"></figure>
-    </div>
-  </section>
-
-  <section class="contact">
-    <h3>Have a project?</h3>
-    <p>Send a message with a photo or a sketch and the size you need.</p>
-    <a class="btn big" href="https://t.me/Zelim_Mik">Message me on Telegram</a>
-  </section>
+<h2>Мои работы</h2>
+<div class="grid">
+<img src="work-1.jpg" alt="Работа 1" loading="lazy">
+<img src="work-2.jpeg" alt="Работа 2" loading="lazy">
+<img src="work-3.jpg" alt="Работа 3" loading="lazy">
+<img src="work-4.jpg" alt="Работа 4" loading="lazy">
+<img src="work-5.jpeg" alt="Работа 5" loading="lazy">
+<img src="work-6.jpeg" alt="Работа 6" loading="lazy">
+</div>
 </main>
-
-<footer>Zelim · Metal and woodworking</footer>
-
-<script>
-/* Photos: try several file extensions for each photo; if none exists, keep the grey box */
-document.querySelectorAll('.grid img').forEach(function (img) {
-  var base = img.getAttribute('src').replace(/\.\w+$/, '');
-  var exts = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG'];
-  var i = 0;
-  function next() {
-    i++;
-    if (i < exts.length) { img.src = base + '.' + exts[i]; } else { img.remove(); }
-  }
-  img.addEventListener('error', next);
-  if (img.complete && img.naturalWidth === 0) { next(); }
-});
-</script>
+<section id="contact">
+<h2>Связаться</h2>
+<p>Расскажите, что нужно сделать, и я отвечу с примерной стоимостью и сроками.</p>
+<strong>Телефон / WhatsApp: +7 000 000 00 00</strong>
+</section>
 </body>
 </html>
